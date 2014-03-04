@@ -10,17 +10,13 @@
 part of d2d;
 
 /**
- * D2D网格类-抽象
- * 定义绘图接口
+ * D2D网格抽象类
  */
 abstract class D2DMesh {
   
   Point _origin = new Point(0, 0); //中心点
   num _alpha = 1;
-  
-  //==========
-  // 参数设置
-  //==========
+
   /**
    * 置透明度
    */
@@ -70,10 +66,7 @@ abstract class D2DMesh {
   }
   
   num getCenterY() => getOriginY();
-  
-  //==========
-  // 绘制实现
-  //==========
+
   /**
    * 绘制
    */
@@ -101,10 +94,7 @@ abstract class D2DMesh {
   void drawSkewed(D2DGraphics graphics, num x, num y, num skewH, num skewV) {
     drawEx(graphics, x, y, skewH: skewH, skewV: skewV);
   }
-  
-  //===========
-  // 绘制接口
-  //===========
+
   /**
    * 绘制-高级-接口
    */

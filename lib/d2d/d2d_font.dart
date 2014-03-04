@@ -29,7 +29,7 @@ const String TEXT_BASELINE_IDEOGRAPHIC  = 'ideographic';  //文本基线是表�
 const String TEXT_BASELINE_BOTTOM  = 'bottom';            //文本基线是 em 方框的底端
 
 /**
- * D2D精灵类
+ * D2D字体类
  */
 class D2DFont extends D2DMesh {
   
@@ -45,10 +45,9 @@ class D2DFont extends D2DMesh {
   String _textAlign = TEXT_ALIGN_START;     //横向居中
   String _textBaseline = TEXT_BASELINE_TOP; //纵向居中
   
-  String _text = null;
+  String _text = null; //文本内容，渲染之前必须赋值
 
-  //颜色部分
-  String _fillStyle = null;
+  String _fillStyle = null; //填充颜色
   int _fill_r = 0;
   int _fill_g = 0;
   int _fill_b = 0;
@@ -57,7 +56,7 @@ class D2DFont extends D2DMesh {
   num _fill_s = null;
   num _fill_l = null;
   
-  String _strokeStyle = null;
+  String _strokeStyle = null; //线框颜色
   int _stroke_r = 0;
   int _stroke_g = 0;
   int _stroke_b = 0;
@@ -70,7 +69,6 @@ class D2DFont extends D2DMesh {
    * 创建
    */
   D2DFont({String family : 'sans-serif', num size : 10, bool isBold : false, bool isItalic : false, bool isVariant : false}) {
-
     //斜体
     if (isItalic == true) {
       _font_style = "italic";
@@ -93,12 +91,8 @@ class D2DFont extends D2DMesh {
     _font_size = size;
     //字体名称
     _font_family = family;
-    
   }
-  
-  //================
-  // 参数设置
-  //================
+
   /**
    * 设置文本
    */
@@ -369,9 +363,6 @@ class D2DFont extends D2DMesh {
     setStrokeStyle(style);
   }
 
-  //================
-  // 实现D2DMesh接口
-  //================
   /**
    * 绘制-高级
    */

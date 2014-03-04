@@ -10,7 +10,7 @@
 part of d2d;
 
 /**
- * D2D绘图源
+ * D2D绘图源接口
  */
 abstract class D2DDrawable {
 

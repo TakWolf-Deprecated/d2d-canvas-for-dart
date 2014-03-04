@@ -19,7 +19,7 @@ const int MEDIA_FUTURE_DATA = 3;  //当前及至少下一帧的数据是可用�
 const int MEDIA_ENOUGH_DATA = 4;  //可用数据足以开始播放
 
 /**
- * D2D多媒体-接口
+ * D2D多媒体抽象类
  */
 abstract class D2DMedia implements D2DResource {
   
@@ -27,20 +27,14 @@ abstract class D2DMedia implements D2DResource {
    * 获取多媒体上下文
    */
   MediaElement getMedia();
-  
-  //================
-  // 音频就绪信息
-  //================  
+ 
   /**
    * 获取音频就绪状态代码
    */
   int getReadyState() {
     return getMedia().readyState;
   }
-  
-  //================
-  // 实现D2DResource
-  //================  
+ 
   /**
    * 是否就绪
    */
@@ -48,11 +42,8 @@ abstract class D2DMedia implements D2DResource {
     return getReadyState() == MEDIA_ENOUGH_DATA;
   }
 
-  //================
-  // 音效参数设置
-  //================
   /**
-   * 设置自动播放
+   * 置自动播放
    */
   void setAutoPlay(bool auto) {
     getMedia().autoplay = auto;
@@ -159,10 +150,7 @@ abstract class D2DMedia implements D2DResource {
     e.src = url;
     getMedia().append(e);
   }
-  
-  //================
-  // 音效控制
-  //================
+
   /**
    * 播放
    */

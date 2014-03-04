@@ -30,10 +30,7 @@ class D2DSprite extends D2DMesh {
     _srcWidth = srcWidth;
     _srcHeight = srcHeight;
   }
-  
-  //============
-  // 实现D2DMesh
-  //============
+
   /**
    * 绘制-高级
    */
@@ -46,9 +43,6 @@ class D2DSprite extends D2DMesh {
     graphics.restore();
   }
 
-  //==========
-  // 参数设置
-  //==========
   /**
    * 取顶点x
    */

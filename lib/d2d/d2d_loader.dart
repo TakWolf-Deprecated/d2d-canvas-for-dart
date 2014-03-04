@@ -10,7 +10,7 @@
 part of d2d;
 
 /**
- * D2D资源加载器
+ * D2D资源加载器类
  */
 class D2DLoader {
   
@@ -96,13 +96,11 @@ class D2DLoader {
    */
   void update() {
     if (_resLoading.length > 0) { //检查是否有等待资源
-      //不为空则遍历
       for (int n = 0; n < _resLoading.length; n++) {
-        //如果资源加载完成
-        if (_resLoading[n].isReady()) {
+        if (_resLoading[n].isReady()) { //如果资源加载完成
           _resFinished.add(_resLoading[n]);
           _resLoading.removeAt(n);
-          break; //跳出循环
+          break; //跳出循环-保证代码安全-但每次循环至多移除一个就绪资源
         }
       }
     }

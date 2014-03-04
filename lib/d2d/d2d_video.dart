@@ -31,29 +31,20 @@ class D2DVideo extends D2DMedia implements D2DDrawable {
     _video = querySelector(videoId);
   }
 
-  //================
-  // 实现D2DMedia接口
-  //================
   /**
    * 获取多媒体上下文
    */
   MediaElement getMedia() {
     return _video;
   }
-  
-  //================
-  // D2DDrawable接口
-  //================
+
   /**
    * 获取canvas绘图源
    */
   CanvasImageSource getCanvasImageSource() {
     return _video;  
   }
-  
-  //================
-  // 接口
-  //================
+
   /**
    * 获取video
    */

@@ -30,20 +30,14 @@ class D2DMusic extends D2DMedia {
   D2DMusic.bind(String audioId) {
     _audio = querySelector(audioId);
   }
-  
-  //================
-  // 实现D2DMedia接口
-  //================
+
   /**
    * 获取多媒体上下文
    */
   MediaElement getMedia() {
     return _audio;
   }
-  
-  //================
-  // 获取audio
-  //================
+
   /**
    * 获取audio
    */

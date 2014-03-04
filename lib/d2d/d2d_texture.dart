@@ -10,7 +10,7 @@
 part of d2d;
 
 /**
- * D2D引擎类
+ * D2D纹理类
  */
 class D2DTexture implements D2DResource, D2DDrawable {
   
@@ -30,29 +30,20 @@ class D2DTexture implements D2DResource, D2DDrawable {
     _image = querySelector(imageId);
   }
 
-  //================
-  // D2DDrawable接口
-  //================
   /**
    * 获取canvas绘图源
    */
   CanvasImageSource getCanvasImageSource() {
     return _image;  
   }
-  
-  //================
-  // D2DResource接口
-  //================  
+
   /**
    * 是否就绪
    */
   bool isReady() {
     return _image.complete;
   }
-  
-  //================
-  // 对外接口
-  //================
+
   /**
    * 获取Image
    */

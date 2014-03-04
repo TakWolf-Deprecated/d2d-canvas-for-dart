@@ -10,7 +10,7 @@
 part of d2d;
 
 /**
- * D2D资源-接口
+ * D2D资源接口
  */
 abstract class D2DResource {
 

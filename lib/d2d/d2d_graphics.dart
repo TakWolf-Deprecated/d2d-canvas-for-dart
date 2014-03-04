@@ -26,7 +26,7 @@ const String OPERATION_XOR = 'xor';                           //透明化重叠�
 const String OPERATION_DARKER = 'darker';                     //相交部分由根据先后图形填充来降低亮度,chrome通过,firefox官方说Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0以后版本移除这个效果-0-,why?safari看似可以,但是无论你什么颜色,它都给填充成黑色,opera无效果
 
 /**
- * D2D绘图
+ * D2D绘图抽象类
  */
 abstract class D2DGraphics implements D2DDrawable {
   
@@ -97,10 +97,7 @@ abstract class D2DGraphics implements D2DDrawable {
    * 同‘setSize’等价
    */
   void setCanvasSize(int width, int height) => setSize(width, height);
-  
-  //=================================
-  // 清屏函数
-  //=================================
+
   /**
    * 清屏-全屏
    */
@@ -126,11 +123,11 @@ abstract class D2DGraphics implements D2DDrawable {
    * RGB清屏-矩形
    */
   void clearRectWithColorRgb(num x, num y, num width, num height, int r, int g, int b, [num a = 1]) {
-    save();//保存状态
+    save();
     clearRect(x, y, width, height);
     getContext().setFillColorRgb(r, g, b, a);
     getContext().fillRect(x, y, width, height);
-    restore();//恢复状态
+    restore();
   }
 
   /**
@@ -144,11 +141,11 @@ abstract class D2DGraphics implements D2DDrawable {
    * HSL清屏-矩形
    */
   void clearRectWithColorHsl(num x, num y, num width, num height, int h, num s, num l, [num a = 1]) {
-    save();//保存状态
+    save();
     clearRect(x, y, width, height);
     getContext().setFillColorHsl(h, s, l, a);
     getContext().fillRect(x, y, width, height);
-    restore();//恢复状态
+    restore();
   }
 
   /**
@@ -165,19 +162,16 @@ abstract class D2DGraphics implements D2DDrawable {
    * CSS清屏
    */
   void clearRectWithStyle(num x, num y, num width, num height, String style) {
-    save();//保存状态
+    save();
     clearRect(x, y, width, height);
     getContext().fillStyle = style;
     getContext().fillRect(x, y, width, height);
-    restore();//恢复状态
+    restore();
   }
   
   void clearRectWithFillStyle(num x, num y, num width, num height, String style) => clearRectWithStyle(x, y, width, height, style);
   void clearRectWithColorCss(num x, num y, num width, num height, String color) => clearRectWithStyle(x, y, width, height, color);
-  
-  //=================================
-  // 矩阵变换
-  //=================================
+
   /**
    * 保存状态
    */
@@ -200,7 +194,7 @@ abstract class D2DGraphics implements D2DDrawable {
    * 重置矩阵
    */
   void resetTransform() {
-    //getContext().resetTransform();//IE 11不兼容
+    //getContext().resetTransform(); //IE 11不兼容
     getContext().setTransform(1, 0, 0, 1, 0, 0); //等价的写法
   }
   
@@ -254,10 +248,7 @@ abstract class D2DGraphics implements D2DDrawable {
   void setTransform(num m11, num m12, num m21, num m22, num dx, num dy) {
     getContext().setTransform(m11, m12, m21, m22, dx, dy);
   }
-  
-  //=================================
-  // 绘图参数
-  //=================================
+
   /**
    * 置全局alpha
    */
@@ -414,9 +405,6 @@ abstract class D2DGraphics implements D2DDrawable {
     return getContext().textBaseline;
   }
 
-  //=================================
-  // 绘图
-  //=================================
   /**
    * 绘制图片
    */

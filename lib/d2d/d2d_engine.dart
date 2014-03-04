@@ -1,4 +1,4 @@
-/*
+﻿/*
  * D2D Canvas for Dart
  * 
  * By TakWolf - takgdx@gmail.com
@@ -65,7 +65,7 @@ class D2DEngine extends D2DGraphics {
   num _screenScaleY = 1;
   
   /**
-   * 初始化
+   * 创建
    */
   D2DEngine(String canvasId, num fps, int width, int height) {
     //绑定canvas并创建缓冲区
@@ -312,9 +312,6 @@ class D2DEngine extends D2DGraphics {
     return engine;
   }
 
-  //=================================
-  // 实现D2DDrawable接口
-  //=================================
   /**
    * 获取canvas绘图源
    */
@@ -322,9 +319,6 @@ class D2DEngine extends D2DGraphics {
     return _canvas;
   }
   
-  //=================================
-  // 实现D2DGraphics接口
-  //=================================
   /**
    * 获取Canvas
    */
@@ -372,10 +366,7 @@ class D2DEngine extends D2DGraphics {
       _canvas.height = height;
     }
   }
-  
-  //=======================================================
-  // 鼠标样式
-  //=======================================================
+
   /**
    * 设置鼠标样式
    */
@@ -414,9 +405,6 @@ class D2DEngine extends D2DGraphics {
   
   bool isMouseVisible() => isCursorVisible();
 
-  //=======================================================
-  // 引擎接口
-  //=======================================================
   /**
    * 取设定帧率
    */
@@ -530,9 +518,6 @@ class D2DEngine extends D2DGraphics {
     window.requestAnimationFrame(_loop);
   }
 
-  //=======================================================
-  // 鼠标事件
-  //=======================================================
   /**
    * 取鼠标坐标x
    */
@@ -712,9 +697,6 @@ class D2DEngine extends D2DGraphics {
 
   num getMouseWheel() => getMouseWheelDelta();
 
-  //=======================================================
-  // 触摸事件
-  //=======================================================
   /**
    * 持续触摸
    */
@@ -804,10 +786,7 @@ class D2DEngine extends D2DGraphics {
       return new Point(getTouchX(identifier), getTouchY(identifier));
     }
   }
-  
-  //=======================================================
-  // 键盘事件
-  //=======================================================
+
   /**
    * 按键是否按住-持续
    */

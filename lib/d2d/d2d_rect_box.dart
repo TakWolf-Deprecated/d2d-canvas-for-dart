@@ -10,7 +10,7 @@
 part of d2d;
 
 /**
- * D2D碰撞盒子
+ * D2D碰撞盒类
  */
 class D2DRectBox {
   
@@ -28,10 +28,7 @@ class D2DRectBox {
     _height = height;
     _origin = new Point(0, 0);
   }
-  
-  //===============
-  // 参数设置
-  //===============
+
   /**
    * 置中心点
    */
@@ -125,10 +122,7 @@ class D2DRectBox {
   num getHeight() {
     return _height;
   }
-  
-  //===============
-  // 碰撞盒子测试
-  //===============  
+ 
   /**
    * 检测点
    */
@@ -153,10 +147,7 @@ class D2DRectBox {
     num edy = this._height/2 + tar._height/2;
     return cdx <= edx && cdy <= edy;
   }
-  
-  //===============
-  // 调试绘制
-  //===============
+
   /**
    * 调试绘制
    */

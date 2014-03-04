@@ -10,7 +10,7 @@
 part of d2d;
 
 /**
- * D2D布景
+ * D2D图层类
  */
 class D2DLayer extends D2DGraphics {
 
@@ -34,10 +34,7 @@ class D2DLayer extends D2DGraphics {
     if (height != null) _canvas.height = height;
     _ctx = _canvas.context2D;
   }
-  
-  //=================================
-  // 实现D2DDrawable接口
-  //=================================
+
   /**
    * 获取canvas绘图源
    */
@@ -45,9 +42,6 @@ class D2DLayer extends D2DGraphics {
     return _canvas;
   }
 
-  //=================================
-  // 实现D2DGraphics接口
-  //=================================
   /**
    * 获取Canvas
    */
